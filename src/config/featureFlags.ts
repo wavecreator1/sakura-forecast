@@ -5,6 +5,9 @@
  * Any flag can also be overridden at runtime with a URL search parameter.
  *
  * Example: append ?yozakura=true to enable the Night Viewing guide.
+ *
+ * URL param overrides are captured once on initial page load so they
+ * persist across SPA navigations (which strip query parameters).
  */
 
 const FEATURE_FLAGS = {
@@ -14,26 +17,33 @@ const FEATURE_FLAGS = {
 
 type FlagName = keyof typeof FEATURE_FLAGS
 
-/**
- * Returns whether a feature flag is enabled.
- * Checks URL search params first (e.g. ?yozakura=true), then falls back
- * to the compile-time constant above.
- */
-export function isFeatureEnabled(flag: FlagName): boolean {
-  if (typeof window !== 'undefined') {
-    const params = new URLSearchParams(window.location.search)
+// Map flag names to shorter URL param names for convenience
+const paramAliases: Record<FlagName, string> = {
+  yozakura_guide: 'yozakura',
+}
 
-    // Map flag names to shorter URL param names for convenience
-    const paramAliases: Record<FlagName, string> = {
-      yozakura_guide: 'yozakura',
-    }
+// Cache URL param overrides at module load time so they survive SPA navigations
+const urlOverrides: Partial<Record<FlagName, boolean>> = {}
 
+if (typeof window !== 'undefined') {
+  const params = new URLSearchParams(window.location.search)
+  for (const flag of Object.keys(FEATURE_FLAGS) as FlagName[]) {
     const paramName = paramAliases[flag] ?? flag
     const paramValue = params.get(paramName)
-
     if (paramValue !== null) {
-      return paramValue === 'true' || paramValue === '1'
+      urlOverrides[flag] = paramValue === 'true' || paramValue === '1'
     }
+  }
+}
+
+/**
+ * Returns whether a feature flag is enabled.
+ * Checks cached URL param overrides first (captured on initial page load),
+ * then falls back to the compile-time constant above.
+ */
+export function isFeatureEnabled(flag: FlagName): boolean {
+  if (flag in urlOverrides) {
+    return urlOverrides[flag]!
   }
 
   return FEATURE_FLAGS[flag]
