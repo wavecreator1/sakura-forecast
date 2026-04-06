@@ -1,6 +1,10 @@
 import { NavLink } from 'react-router-dom'
+import { useFeatureFlag } from '../hooks/useFeatureFlag'
+import { YOZAKURA_GUIDE_DEFAULT } from '../config/featureFlags'
 
 function Navbar() {
+  const showYozakura = useFeatureFlag(YOZAKURA_GUIDE_DEFAULT, 'yozakura')
+
   return (
     <nav className="bg-white/80 backdrop-blur-md border-b border-sakura-100 sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -59,6 +63,20 @@ function Navbar() {
             >
               History
             </NavLink>
+            {showYozakura && (
+              <NavLink
+                to="/night-viewing"
+                className={({ isActive }) =>
+                  `px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'bg-indigo-950 text-amber-400'
+                      : 'text-gray-600 hover:text-amber-500 hover:bg-indigo-950/10'
+                  }`
+                }
+              >
+                Night Viewing
+              </NavLink>
+            )}
           </div>
         </div>
       </div>
