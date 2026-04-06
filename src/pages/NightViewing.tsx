@@ -37,7 +37,9 @@ function NightViewing() {
                   alt={spot.name}
                   className="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
-                    ;(e.target as HTMLImageElement).src =
+                    const img = e.target as HTMLImageElement
+                    img.onerror = null
+                    img.src =
                       'https://placehold.co/600x300/1a1a2e/f59e0b?text=🌸+夜桜'
                   }}
                 />
