@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import { isFeatureEnabled } from '../config/featureFlags'
 
 /**
@@ -7,5 +6,5 @@ import { isFeatureEnabled } from '../config/featureFlags'
  * navigation are picked up immediately.
  */
 export function useFeatureFlag(flagDefault: boolean, urlParam: string): boolean {
-  return useMemo(() => isFeatureEnabled(flagDefault, urlParam), [flagDefault, urlParam])
+  return isFeatureEnabled(flagDefault, urlParam)
 }
