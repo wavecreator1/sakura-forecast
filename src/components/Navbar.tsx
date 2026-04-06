@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { isYozakuraEnabled } from '../config/featureFlags'
 
 function Navbar() {
   return (
@@ -59,6 +60,18 @@ function Navbar() {
             >
               History
             </NavLink>
+            {isYozakuraEnabled() && (
+              <NavLink
+                to="/night-viewing"
+                className={({ isActive }) =>
+                  `px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    isActive ? 'bg-sakura-50 text-sakura-700' : 'text-gray-600 hover:text-sakura-600 hover:bg-sakura-50/50'
+                  }`
+                }
+              >
+                Night Viewing
+              </NavLink>
+            )}
           </div>
         </div>
       </div>

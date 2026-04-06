@@ -4,6 +4,8 @@ import Footer from './components/Footer'
 import ForecastMap from './pages/ForecastMap'
 import TopSpots from './pages/TopSpots'
 import History from './pages/History'
+import NightViewing from './pages/NightViewing'
+import { isYozakuraEnabled } from './config/featureFlags'
 
 function App() {
   return (
@@ -14,6 +16,9 @@ function App() {
           <Route path="/" element={<ForecastMap />} />
           <Route path="/spots" element={<TopSpots />} />
           <Route path="/history" element={<History />} />
+          {isYozakuraEnabled() && (
+            <Route path="/night-viewing" element={<NightViewing />} />
+          )}
         </Routes>
       </main>
       <Footer />
