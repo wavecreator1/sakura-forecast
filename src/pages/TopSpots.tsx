@@ -12,10 +12,11 @@ function TopSpots() {
       {/* Header */}
       <div className="text-center mb-10">
         <h1 className="font-serif text-3xl sm:text-4xl font-bold text-sakura-700 mb-2">
-          Top 10 Hanami Spots
+          おすすめ花見スポット10選
         </h1>
+        <p className="text-lg text-sakura-500 mb-1">Top 10 Hanami Spots</p>
         <p className="text-gray-500 max-w-xl mx-auto">
-          Discover Japan's most beloved cherry blossom viewing locations, from Tokyo's iconic parks to mountain vistas.
+          東京の名所から山間の絶景まで、日本で最も愛される桜の名所をご紹介します。
         </p>
       </div>
 
@@ -61,7 +62,7 @@ function TopSpots() {
                 <h3 className="font-serif text-lg font-bold text-gray-800">{spot.name}</h3>
                 <span className="text-sm text-gray-400 whitespace-nowrap ml-2">{spot.location}</span>
               </div>
-              <p className="text-sm text-sakura-500 mb-2">{spot.bloomDates}</p>
+              <p className="text-sm text-sakura-500 mb-2">🌸 {spot.bloomDates}</p>
               <p className="text-sm text-gray-600 leading-relaxed">{spot.description}</p>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {spot.tags.map((tag) => (

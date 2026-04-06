@@ -37,7 +37,7 @@ function Navbar() {
                 }`
               }
             >
-              Forecast Map
+              予報マップ
             </NavLink>
             <NavLink
               to="/spots"
@@ -47,7 +47,7 @@ function Navbar() {
                 }`
               }
             >
-              Top Spots
+              おすすめスポット
             </NavLink>
             <NavLink
               to="/history"
@@ -57,7 +57,7 @@ function Navbar() {
                 }`
               }
             >
-              History
+              過去のデータ
             </NavLink>
           </div>
         </div>
