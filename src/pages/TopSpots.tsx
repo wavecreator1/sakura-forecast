@@ -49,7 +49,9 @@ function TopSpots() {
                 alt={spot.name}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://placehold.co/600x300/fde6ea/e84468?text=🌸'
+                  const img = e.target as HTMLImageElement
+                  img.onerror = null
+                  img.src = 'https://placehold.co/600x300/fde6ea/e84468?text=🌸'
                 }}
               />
               <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full">
