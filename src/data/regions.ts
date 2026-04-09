@@ -100,6 +100,13 @@ export const statusColors: Record<Region['status'], string> = {
 }
 
 export const statusLabels: Record<Region['status'], string> = {
+  'not-yet': 'まだ',
+  'budding': 'つぼみ',
+  'full-bloom': '満開',
+  'falling': '散り始め',
+}
+
+export const statusLabelsEn: Record<Region['status'], string> = {
   'not-yet': 'Not Yet',
   'budding': 'Budding',
   'full-bloom': 'Full Bloom',

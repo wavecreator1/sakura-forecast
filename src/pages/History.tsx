@@ -36,17 +36,18 @@ function History() {
       {/* Header */}
       <div className="text-center mb-10">
         <h1 className="font-serif text-3xl sm:text-4xl font-bold text-sakura-700 mb-2">
-          Historical Bloom Dates
+          過去の開花データ
         </h1>
+        <p className="text-lg text-sakura-500 mb-1">Historical Bloom Dates</p>
         <p className="text-gray-500 max-w-xl mx-auto">
-          Full bloom dates for Tokyo and Kyoto over the past 10 years, showing how timing varies by season.
+          東京と京都の過去10年間の満開日データ。年ごとの開花時期の変動をご覧ください。
         </p>
       </div>
 
       {/* Chart */}
       <div className="bg-white rounded-2xl border border-sakura-100 p-6 mb-8">
         <h2 className="font-serif text-xl font-semibold text-gray-800 mb-6">
-          Full Bloom Date Trends
+          満開日の推移 <span className="text-sm font-normal text-gray-400 ml-2">Full Bloom Date Trends</span>
         </h2>
         <ResponsiveContainer width="100%" height={400}>
           <LineChart data={historyData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
@@ -84,15 +85,15 @@ function History() {
       {/* Data Table */}
       <div className="bg-white rounded-2xl border border-sakura-100 overflow-hidden">
         <div className="p-6 border-b border-sakura-100">
-          <h2 className="font-serif text-xl font-semibold text-gray-800">Full Bloom Date Table</h2>
+          <h2 className="font-serif text-xl font-semibold text-gray-800">満開日一覧 <span className="text-sm font-normal text-gray-400 ml-2">Full Bloom Date Table</span></h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
               <tr className="bg-sakura-50/50">
-                <th className="text-left py-3 px-6 text-sm font-semibold text-gray-700">Year</th>
-                <th className="text-left py-3 px-6 text-sm font-semibold text-sakura-600">Tokyo</th>
-                <th className="text-left py-3 px-6 text-sm font-semibold text-sakura-800">Kyoto</th>
+                <th className="text-left py-3 px-6 text-sm font-semibold text-gray-700">年 / Year</th>
+                <th className="text-left py-3 px-6 text-sm font-semibold text-sakura-600">東京 / Tokyo</th>
+                <th className="text-left py-3 px-6 text-sm font-semibold text-sakura-800">京都 / Kyoto</th>
               </tr>
             </thead>
             <tbody>

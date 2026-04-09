@@ -20,10 +20,10 @@ function Footer() {
                 <circle r="3" fill="#e84468"/>
               </g>
             </svg>
-            <span className="text-sm text-gray-500">Sakura Forecast 2026</span>
+            <span className="text-sm text-gray-500">桜前線 2026 — Sakura Forecast</span>
           </div>
           <p className="text-xs text-gray-400">
-            Data is illustrative. Actual bloom dates vary by weather conditions.
+            データはイラスト用です。実際の開花日は気象条件により異なります。
           </p>
         </div>
       </div>
