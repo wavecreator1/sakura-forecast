@@ -10,6 +10,9 @@ import { isFeatureEnabled } from './config/featureFlags'
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <header className="bg-sakura-600 text-white text-center py-3 text-lg font-semibold">
+        hello world
+      </header>
       <Navbar />
       <main className="flex-1">
         <Routes>
